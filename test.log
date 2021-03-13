@@ -1,0 +1,14 @@
+{"level":"error","ts":1615618883.4347177,"caller":"tiger-card/main.go:48","msg":"Error fetching URL www.google.com : Error = Get \"www.google.com\": unsupported protocol scheme \"\""}
+{"level":"info","ts":1615618885.0739217,"caller":"tiger-card/main.go:50","msg":"Success! statusCode = 200 OK for URL http://www.google.com"}
+{"level":"error","ts":1615618910.5312052,"caller":"tiger-card/main.go:47","msg":"Error fetching URL www.google.com : Error = Get \"www.google.com\": unsupported protocol scheme \"\""}
+{"level":"info","ts":1615618911.5416412,"caller":"tiger-card/main.go:49","msg":"Success! statusCode = 200 OK for URL http://www.google.com"}
+{"level":"error","ts":1615618994.5297687,"caller":"tiger-card/main.go:53","msg":"Error fetching URL www.google.com : Error = Get \"www.google.com\": unsupported protocol scheme \"\""}
+{"level":"info","ts":1615618995.756782,"caller":"tiger-card/main.go:55","msg":"Success! statusCode = 200 OK for URL http://www.google.com"}
+2021-03-13T12:35:38.634+0530	ERROR	tiger-card/main.go:52	Error fetching URL www.google.com : Error = Get "www.google.com": unsupported protocol scheme ""
+2021-03-13T12:35:40.459+0530	INFO	tiger-card/main.go:54	Success! statusCode = 200 OK for URL http://www.google.com
+2021-03-13T12:48:42.899+0530	ERROR	tiger-card/main.go:19	Error fetching URL www.google.com : Error = Get "www.google.com": unsupported protocol scheme ""
+2021-03-13T12:48:44.543+0530	INFO	tiger-card/main.go:21	Success! statusCode = 200 OK for URL http://www.google.com
+2021-03-13T12:56:40.687+0530	ERROR	tiger-card/main.go:14	[Main]. Unable to initialize IST location due to error : %+vunknown time zone constants.IstLocationIANAString
+2021-03-13T12:57:17.365+0530	ERROR	tiger-card/main.go:15	[Main]. Unable to initialize IST location due to error : {error 26 0  unknown time zone constants.IstLocationIANAString}
+2021-03-13T12:59:17.053+0530	ERROR	tiger-card/main.go:15	[Main]. Unable to initialize IST location due to error : {Key:error Type:26 Integer:0 String: Interface:unknown time zone constants.IstLocationIANAString}
+2021-03-13T12:59:28.791+0530	ERROR	tiger-card/main.go:14	[Main]. Unable to initialize IST location due to error : unknown time zone constants.IstLocationIANAString
