@@ -7,6 +7,7 @@ import (
 	"time"
 )
 
+// FareCalculator accepts the list of trips and return the total fare for all the trip
 func FareCalculator(trips []*trip.Trip) int {
 	if len(trips) == 0 {
 		return 0
@@ -24,6 +25,7 @@ func FareCalculator(trips []*trip.Trip) int {
 	return totalFare
 }
 
+// getCappedFare validate the actual fare against all the caps and return the discounted fare.
 func getCappedFare(actualFare int, trip *trip.Trip, caps []icap.Cap) int {
 	for _, c := range caps {
 		if cappedFare := c.GetCappedFare(trip, actualFare); cappedFare < actualFare {
@@ -33,12 +35,14 @@ func getCappedFare(actualFare int, trip *trip.Trip, caps []icap.Cap) int {
 	return actualFare
 }
 
-func updateCapsTotalFare(caps []icap.Cap, actualfare int) {
+// updateCapsTotalFare update the total fare for the list of journey for all the caps
+func updateCapsTotalFare(caps []icap.Cap, actualFare int) {
 	for _, c := range caps {
-		c.UpdateTotalFare(actualfare)
+		c.UpdateTotalFare(actualFare)
 	}
 }
 
+// resetAllCaps reset all the caps
 func resetAllCaps(caps []icap.Cap, dateTime time.Time) {
 	for _, c := range caps {
 		c.Reset(dateTime)

@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// DayType is a enum variable to contains the day type (WEEKDAY and WEEKEND)
 type DayType int
 
 const (
@@ -18,10 +19,12 @@ var dayTypeString = []string{
 	"WEEKEND",
 }
 
+// String returns the corresponding day type string
 func (d DayType) String() string {
 	return dayTypeString[d]
 }
 
+// GetDayTypeForDateTime check whether the given dateTime falls in weekday or weekend and return the corresponding concrete type
 func GetDayTypeForDateTime(dateTime time.Time) DayType {
 	dayOfTheWeek := dateTime.Weekday()
 	if dayOfTheWeek == time.Sunday || dayOfTheWeek == time.Saturday {
@@ -30,6 +33,7 @@ func GetDayTypeForDateTime(dateTime time.Time) DayType {
 	return Weekday
 }
 
+// GetDayTypeForString parses the day time string nd returns the concrete day type
 func GetDayTypeForString(dayTypeString string) DayType {
 	var dayType DayType
 	switch dayTypeString {

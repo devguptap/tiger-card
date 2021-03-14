@@ -6,6 +6,9 @@ import (
 	"time"
 )
 
+// dailyCap contains the daily cap matrix for zone combination for a particular test suite. See example below
+// [100	 120]
+// [120	  80]
 var dailyCap [][]int
 
 type Daily struct {

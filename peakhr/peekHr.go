@@ -12,22 +12,27 @@ import (
 	"time"
 )
 
+// timeRange contains the peak hour time range
 type timeRange struct {
 	From *timeStamp
 	To   *timeStamp
 }
 
+// timeStamp contains the peak hour hour and min value
 type timeStamp struct {
 	Hour int
 	Min  int
 }
 
+// peakHrRule contains all the peak hour set for a combination of zones
 type peakHrRule struct {
 	PeakHrMap map[zone.Zone]map[zone.Zone]map[day.DayType][]*timeRange
 }
 
+// peakHr is the variable which contains all the peak hour set for a combination of zones for a test suite
 var peakHr = &peakHrRule{PeakHrMap: make(map[zone.Zone]map[zone.Zone]map[day.DayType][]*timeRange)}
 
+// IsPeakHours returns whether this trip falls in peak time
 func IsPeakHours(trip *trip.Trip) bool {
 	var isPeakHour bool
 	for _, timeRange := range getTimeRangeForTrip(trip) {
@@ -40,6 +45,7 @@ func IsPeakHours(trip *trip.Trip) bool {
 	return isPeakHour
 }
 
+// isDateTimeWithinTimeRange check whether the given dateTime falls in timeRange
 func isDateTimeWithinTimeRange(dateTime time.Time, timeRange *timeRange) bool {
 	todayHr := dateTime.Hour()
 	todayMin := dateTime.Minute()
@@ -55,6 +61,7 @@ func isDateTimeWithinTimeRange(dateTime time.Time, timeRange *timeRange) bool {
 	return true
 }
 
+// getTimeRangeForTrip accept the trip and return the list of peak time range configured for the zone combination
 func getTimeRangeForTrip(trip *trip.Trip) []*timeRange {
 	if toZoneMap, ok := peakHr.PeakHrMap[trip.FromZone]; ok {
 		if dayRangeMap, ok := toZoneMap[trip.ToZone]; ok {
@@ -66,6 +73,7 @@ func getTimeRangeForTrip(trip *trip.Trip) []*timeRange {
 	return nil
 }
 
+// InitializePeakHour Read the config file bytes and initialize the peakHr varuable
 func InitializePeakHour(fileBytes []byte) {
 	var configFileObj = make(map[string]map[string]map[string][]string)
 	var err error
@@ -80,6 +88,7 @@ func InitializePeakHour(fileBytes []byte) {
 
 }
 
+// getToZonePeakHrMap is a helper function for InitializePeakHour
 func getToZonePeakHrMap(toZonePeakHrMap map[string]map[string][]string) map[zone.Zone]map[day.DayType][]*timeRange {
 	var result = make(map[zone.Zone]map[day.DayType][]*timeRange)
 	for toZoneId, dayTypePeakHrMap := range toZonePeakHrMap {
@@ -89,6 +98,7 @@ func getToZonePeakHrMap(toZonePeakHrMap map[string]map[string][]string) map[zone
 	return result
 }
 
+// getDayTypeTimeRangeMap is a helper function for getToZonePeakHrMap
 func getDayTypeTimeRangeMap(dayTypePeakHrMap map[string][]string) map[day.DayType][]*timeRange {
 	var result = make(map[day.DayType][]*timeRange)
 	for dt, peakHrRange := range dayTypePeakHrMap {
@@ -102,6 +112,7 @@ func getDayTypeTimeRangeMap(dayTypePeakHrMap map[string][]string) map[day.DayTyp
 	return result
 }
 
+// parseTimeRangeString parses the time range string. Time range should be in format HH:mm-HH:mm
 func parseTimeRangeString(tr string) *timeRange {
 	var timeRangeObj *timeRange
 	trSlice := strings.Split(tr, "-")
@@ -116,6 +127,7 @@ func parseTimeRangeString(tr string) *timeRange {
 	return timeRangeObj
 }
 
+// parseTimeStamp parses the timestamp. Timestamp should be in format : HH:mm
 func parseTimeStamp(hm string) *timeStamp {
 	var timeStampObj *timeStamp
 	var err error

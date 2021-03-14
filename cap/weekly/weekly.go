@@ -17,6 +17,9 @@ var dayDiffFromStartOfTheWeek = map[time.Weekday]int{
 	time.Sunday:    6,
 }
 
+// weeklyCap contains the weekly cap matrix for zone combination for a particular test suite. See example below
+// [500	 600]
+// [600	 400]
 var weeklyCap [][]int
 
 type Weekly struct {
