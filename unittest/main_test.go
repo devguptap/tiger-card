@@ -5,15 +5,24 @@ import (
 	"flag"
 	"io/ioutil"
 	"os"
+	"runtime/debug"
 	"testing"
-	"tiger-card/caps"
+	"tiger-card/cap/daily"
+	"tiger-card/cap/weekly"
 	"tiger-card/config"
 	"tiger-card/fare"
 	"tiger-card/logger"
-	"tiger-card/peakhours"
+	"tiger-card/peakhr"
 )
 
 func TestMain(m *testing.M) {
+	defer func() {
+		if r := recover(); r != nil {
+			logger.GetLogger().Errorf("Test failed with error : %+v", r)
+			debug.PrintStack()
+			os.Exit(int(flag.ExitOnError))
+		}
+	}()
 	logger.InitLogger()
 	var err error
 	if err = config.InitializeISTLocation(); err != nil {
@@ -36,11 +45,6 @@ func TestMain(m *testing.M) {
 		os.Exit(int(flag.ExitOnError))
 	}
 
-	if err = initZone1ReturnTripOffPeakHours(); err != nil {
-		logger.GetLogger().Errorf("Unable to parse zone 1 return trio off peak hour data file due to error : %+v", err)
-		os.Exit(int(flag.ExitOnError))
-	}
-
 	logger.GetLogger().Info("Starting test cases")
 	exitVal := m.Run()
 	logger.GetLogger().Infof("Test case execution done. Exit code is : %v", exitVal)
@@ -50,23 +54,8 @@ func TestMain(m *testing.M) {
 func initPeakHourTestData() error {
 	var fileBytes []byte
 	var err error
-	if fileBytes, err = ioutil.ReadFile("./peakHourData.json"); err == nil {
-		dataObj := &peakHoursDataObj{}
-		if err = json.Unmarshal(fileBytes, dataObj); err == nil {
-			err = peakhours.InitPeakHours(dataObj.WeekdayPeakHours, dataObj.WeekendPeakHours)
-		}
-	}
-	return err
-}
-
-func initZone1ReturnTripOffPeakHours() error {
-	var fileBytes []byte
-	var err error
-	if fileBytes, err = ioutil.ReadFile("./zone1ReturnTripOffPeakHours.json"); err == nil {
-		dataObj := &zone1ReturnTripOffPeakHoursDataObj{}
-		if err = json.Unmarshal(fileBytes, dataObj); err == nil {
-			err = peakhours.InitZone1ReturnJourneyOffPeeHours(dataObj.WeekdayOffPeakHours, dataObj.WeekendOffPeakHours)
-		}
+	if fileBytes, err = ioutil.ReadFile("./peekHourConfig.json"); err == nil {
+		peakhr.InitializePeakHour(fileBytes)
 	}
 	return err
 }
@@ -77,7 +66,8 @@ func initCapData() error {
 	if fileBytes, err = ioutil.ReadFile("./capData.json"); err == nil {
 		dataObj := &capData{}
 		if err = json.Unmarshal(fileBytes, dataObj); err == nil {
-			caps.InitCaps(dataObj.Daily, dataObj.Weekly)
+			daily.Init(dataObj.Daily)
+			weekly.Init(dataObj.Weekly)
 		}
 	}
 	return err
@@ -89,7 +79,7 @@ func initFareData() error {
 	if fileBytes, err = ioutil.ReadFile("./fareData.json"); err == nil {
 		dataObj := &fareData{}
 		if err = json.Unmarshal(fileBytes, dataObj); err == nil {
-			fare.InitZoneFare(dataObj.PeakHour, dataObj.OffPeakHour)
+			fare.Init(dataObj.PeakHour, dataObj.OffPeakHour)
 		}
 	}
 	return err

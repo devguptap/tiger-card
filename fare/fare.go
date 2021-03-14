@@ -1,17 +1,25 @@
 package fare
 
-var peakHourFare [][]int
-var offPeakHourFare [][]int
+import (
+	"tiger-card/peakhr"
+	"tiger-card/trip"
+)
 
-func InitZoneFare(peakHourFareMatrix, offPeakHourFareMatrix [][]int) {
-	peakHourFare = peakHourFareMatrix
-	offPeakHourFare = offPeakHourFareMatrix
+type Fare struct {
+	peakHr, offPeakHr [][]int
 }
 
-func GetFare(fromZone, toZone int, isPeakHour bool) int {
-	if isPeakHour {
-		return peakHourFare[fromZone-1][toZone-1]
+var fareObj = new(Fare)
+
+func Init(peakHrFareMatrix, offPeakHrFareMatrix [][]int) {
+	fareObj.peakHr = peakHrFareMatrix
+	fareObj.offPeakHr = offPeakHrFareMatrix
+}
+
+func GetFare(trip *trip.Trip) int {
+	if peakhr.IsPeakHours(trip) {
+		return fareObj.peakHr[trip.FromZone.GetId()-1][trip.ToZone.GetId()-1]
 	} else {
-		return offPeakHourFare[fromZone-1][toZone-1]
+		return fareObj.offPeakHr[trip.FromZone.GetId()-1][trip.ToZone.GetId()-1]
 	}
 }

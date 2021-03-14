@@ -6,8 +6,9 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 	"io/ioutil"
 	"testing"
-	"tiger-card/farecalculator"
-	"tiger-card/reqresp"
+	"tiger-card/config"
+	"tiger-card/fare/calculate"
+	"tiger-card/trip"
 	"time"
 )
 
@@ -25,22 +26,18 @@ func TestTigerCard(t *testing.T) {
 
 	for _, testCase := range testData {
 		Convey(fmt.Sprintf("Given a test case with id : %s", testCase.TestCaseId), t, func() {
-			var trips = make([]*reqresp.TripData, 0, 0)
+			var trips = make([]*trip.Trip, 0, 0)
 			var dateTime time.Time
-			for _, trip := range testCase.Trips {
-				if dateTime, err = time.Parse(testDataDateTimeFormat, trip.DateTimeString); err != nil {
-					t.Errorf("Unable to parse date time string : %s due to error : %+v", trip.DateTimeString, err)
+			for _, tripTestData := range testCase.Trips {
+				if dateTime, err = time.ParseInLocation(testDataDateTimeFormat, tripTestData.DateTimeString, config.ISTLocation); err != nil {
+					t.Errorf("Unable to parse date time string : %s due to error : %+v", tripTestData.DateTimeString, err)
 					t.FailNow()
 				}
 
-				trips = append(trips, &reqresp.TripData{
-					DateTime: dateTime,
-					FromZone: trip.FromZone,
-					ToZone:   trip.ToZone,
-				})
+				trips = append(trips, trip.NewTrip(tripTestData.FromZone, tripTestData.ToZone, dateTime))
 			}
 			Convey("When run the test case", func() {
-				actualResult := farecalculator.CalculateFare(trips)
+				actualResult := calculate.FareCalculator(trips)
 				Convey(fmt.Sprintf("Then the expected result should be : %v", testCase.ExpectedResult), func() {
 					So(actualResult, ShouldEqual, testCase.ExpectedResult)
 				})

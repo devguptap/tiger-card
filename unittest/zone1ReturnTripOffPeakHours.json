@@ -1,8 +1,0 @@
-{
-  "weekdayOffPeakHours": {
-    "17:00" : "20:00"
-  },
-  "weekendOffPeakHours" : {
-    "18:00" : "22:00"
-  }
-}
