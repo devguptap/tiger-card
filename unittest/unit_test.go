@@ -39,6 +39,7 @@ func TestTigerCard(t *testing.T) {
 			Convey("When run the test case", func() {
 				actualResult := calculate.FareCalculator(trips)
 				Convey(fmt.Sprintf("Then the expected result should be : %v", testCase.ExpectedResult), func() {
+					t.Logf("Actual Result is : %v", actualResult)
 					So(actualResult, ShouldEqual, testCase.ExpectedResult)
 				})
 			})
