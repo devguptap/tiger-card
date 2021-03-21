@@ -7,11 +7,11 @@ import (
 	"os"
 	"runtime/debug"
 	"testing"
-	"tiger-card/cap/daily"
-	"tiger-card/cap/weekly"
 	"tiger-card/config"
 	"tiger-card/fare"
 	"tiger-card/logger"
+	"tiger-card/pass/daily"
+	"tiger-card/pass/weekly"
 	"tiger-card/peakhr"
 )
 

@@ -1,26 +1,40 @@
 package zone
 
-import "strconv"
+import (
+	"encoding/json"
+	"errors"
+	"fmt"
+	"io/ioutil"
+	"tiger-card/logger"
+)
 
-// Zone is a concrete type to represent the zones
-type Zone int
+type Id string
+type Radius int
 
-func (z Zone) GetId() int {
-	return int(z)
-}
+var zones map[Id]Radius
 
-// NewZone return the Zone object for given zone number/id
-func NewZone(id int) Zone {
-	return Zone(id)
-}
-
-// NewZoneForZoneId return the Zone object for given zone number/id  in string format
-func NewZoneForZoneId(zoneId string) Zone {
-	var zone Zone
-	if id, err := strconv.Atoi(zoneId); err == nil {
-		zone = NewZone(id)
-	} else {
-		panic(err)
+func InitZones() error {
+	var err error
+	var fileBytes []byte
+	if fileBytes, err = ioutil.ReadFile("resources\\zones.json"); err == nil {
+		zones = make(map[Id]Radius)
+		if err = json.Unmarshal(fileBytes, zones); err == nil {
+			logger.GetLogger().Info("[Config]. zones initialized successfully")
+		}
 	}
-	return zone
+
+	return err
+}
+
+func GetZoneRadius(id string) (int, error) {
+	if radius, ok := zones[Id(id)]; ok {
+		return int(radius), nil
+	} else {
+		return -1, errors.New(fmt.Sprintf("invalid zone id : %s", id))
+	}
+}
+
+func IsValidZone(id string) bool {
+	_, ok := zones[Id(id)]
+	return ok
 }

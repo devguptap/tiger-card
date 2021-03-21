@@ -1,8 +1,8 @@
 package icap
 
 import (
-	"tiger-card/cap/daily"
-	"tiger-card/cap/weekly"
+	"tiger-card/pass/daily"
+	"tiger-card/pass/weekly"
 	"tiger-card/trip"
 	"time"
 )

@@ -9,6 +9,7 @@ import (
 
 // FareCalculator accepts the list of trips and return the total fare for all the trip
 func FareCalculator(trips []*trip.Trip) int {
+
 	if len(trips) == 0 {
 		return 0
 	}

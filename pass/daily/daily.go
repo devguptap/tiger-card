@@ -1,25 +1,31 @@
 package daily
 
 import (
-	"tiger-card/cap/util"
+	"encoding/json"
+	"io/ioutil"
+	"tiger-card/logger"
+	"tiger-card/pass/util"
 	"tiger-card/trip"
+	"tiger-card/zone"
 	"time"
 )
 
 // dailyCap contains the daily cap matrix for zone combination for a particular test suite. See example below
 // [100	 120]
 // [120	  80]
-var dailyCap [][]int
+type dailyCapAmount int
+
+var dailyCapMap map[zone.Id]map[zone.Id]dailyCapAmount
 
 type Daily struct {
-	capAmount    int
-	zoneDistance int
-	totalFare    int
-	lastUpdated  time.Time
+	capAmount  int
+	dailyTotal int
+	expiry     time.Time
+	isActive   bool
 }
 
 func (d *Daily) Reset(dateTime time.Time) {
-	d.capAmount, d.totalFare = 0, 0
+	d.capAmount = 0
 	d.zoneDistance = -1
 	d.lastUpdated = dateTime
 }
@@ -49,6 +55,15 @@ func (d *Daily) UpdateTotalFare(fare int) {
 	d.totalFare += fare
 }
 
-func Init(capMatrix [][]int) {
-	dailyCap = capMatrix
+func InitDailyCap() error {
+	var err error
+	var fileBytes []byte
+	if fileBytes, err = ioutil.ReadFile("resources\\zones.json"); err == nil {
+		zone = make(map[ZoneId]ZoneRadius)
+		if err = json.Unmarshal(fileBytes, zone); err == nil {
+			logger.GetLogger().Info("[Config]. zones initialized successfully")
+		}
+	}
+
+	return err
 }

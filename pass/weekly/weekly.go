@@ -1,8 +1,8 @@
 package weekly
 
 import (
-	"tiger-card/cap/util"
 	"tiger-card/config"
+	"tiger-card/pass/util"
 	"tiger-card/trip"
 	"time"
 )
