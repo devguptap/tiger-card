@@ -6,6 +6,7 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 	"io/ioutil"
 	"testing"
+	"tiger-card/card"
 	"tiger-card/config"
 	"tiger-card/fare/calculate"
 	"tiger-card/trip"
@@ -24,6 +25,7 @@ func TestTigerCard(t *testing.T) {
 		t.FailNow()
 	}
 
+	tigerCard := card.NewTigerCard()
 	for _, testCase := range testData {
 		Convey(fmt.Sprintf("Given a test case with id : %s", testCase.TestCaseId), t, func() {
 			var trips = make([]*trip.Trip, 0, 0)
@@ -34,10 +36,10 @@ func TestTigerCard(t *testing.T) {
 					t.FailNow()
 				}
 
-				trips = append(trips, trip.NewTrip(tripTestData.FromZone, tripTestData.ToZone, dateTime))
+				trips = append(trips, trip.NewTrip(tigerCard.GetCardNumber(), tripTestData.FromZone, tripTestData.ToZone, dateTime))
 			}
 			Convey("When run the test case", func() {
-				actualResult := calculate.FareCalculator(trips)
+				actualResult := calculate.FareCalculator(tigerCard.GetCardNumber(), trips)
 				Convey(fmt.Sprintf("Then the expected result should be : %v", testCase.ExpectedResult), func() {
 					t.Logf("Actual Result is : %v", actualResult)
 					So(actualResult, ShouldEqual, testCase.ExpectedResult)

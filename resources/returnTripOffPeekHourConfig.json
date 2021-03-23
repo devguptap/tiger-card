@@ -1,0 +1,48 @@
+{
+  "Z2": {
+    "Z1": {
+      "Sunday": [
+        {
+          "fromTime": "18:00",
+          "toTime": "22:00"
+        }
+      ],
+      "Monday": [
+        {
+          "fromTime": "17:00",
+          "toTime": "20:00"
+        }
+      ],
+      "Tuesday": [
+        {
+          "fromTime": "17:00",
+          "toTime": "20:00"
+        }
+      ],
+      "Wednesday": [
+        {
+          "fromTime": "17:00",
+          "toTime": "20:00"
+        }
+      ],
+      "Thursday": [
+        {
+          "fromTime": "17:00",
+          "toTime": "20:00"
+        }
+      ],
+      "Friday": [
+        {
+          "fromTime": "17:00",
+          "toTime": "20:00"
+        }
+      ],
+      "Saturday": [
+        {
+          "fromTime": "18:00",
+          "toTime": "22:00"
+        }
+      ]
+    }
+  }
+}

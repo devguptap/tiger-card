@@ -9,7 +9,7 @@ type appConfig struct {
 	zoneRadiusMap                  map[string]int                                `json:"zoneRadiusMap"`
 	fareConfig                     map[string]map[string]*fareConfig             `json:"fareConfig"`
 	capConfig                      map[string]map[string]*capConfig              `json:"capConfig"`
-	peakHourConfig                 map[string][]*timeRange                       `json:"peakHourConfig"`
+	peakHourConfig                 map[string][]*timeRange                       `json:"peakHourConfig.json"`
 	returnJourneyOffPeekHourConfig map[string]map[string]map[string][]*timeRange `json:"returnJourneyOffPeekHourConfig"`
 }
 

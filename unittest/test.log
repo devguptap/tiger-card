@@ -11,3 +11,120 @@
 2021-03-15T03:47:48.278+0530	INFO	unittest/main_test.go:50	Test case execution done. Exit code is : 0
 2021-03-15T03:49:04.184+0530	INFO	unittest/main_test.go:48	Starting test cases
 2021-03-15T03:49:04.186+0530	INFO	unittest/main_test.go:50	Test case execution done. Exit code is : 0
+2021-03-23T07:35:56.669+0530	ERROR	unittest/main_test.go:34	Unable to initialize fare due to error : open resources\fare.json: The system cannot find the path specified.
+2021-03-23T07:36:37.020+0530	ERROR	unittest/main_test.go:34	Unable to initialize fare due to error : open resources\fare.json: The system cannot find the path specified.
+2021-03-23T07:36:57.251+0530	ERROR	unittest/main_test.go:34	Unable to initialize fare due to error : open resources\fare.json: The system cannot find the path specified.
+2021-03-23T07:38:34.816+0530	ERROR	unittest/main_test.go:34	Unable to initialize fare due to error : open .\resources\fare.json: The system cannot find the path specified.
+2021-03-23T07:39:33.493+0530	ERROR	unittest/main_test.go:34	Unable to initialize fare due to error : open resources\fare.json: The system cannot find the path specified.
+2021-03-23T07:39:48.892+0530	ERROR	unittest/main_test.go:34	Unable to initialize fare due to error : open resources\fare.json: The system cannot find the path specified.
+2021-03-23T07:52:57.125+0530	ERROR	fare/fare.go:29	unable to fetch resource directory path from env variable : TigerCardResourceDirPath
+2021-03-23T07:52:57.126+0530	ERROR	unittest/main_test.go:34	Unable to initialize fare due to error : unable to fetch resource directory path from env variable : TigerCardResourceDirPath
+2021-03-23T07:54:30.506+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T07:54:30.507+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T07:54:30.507+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T07:54:30.507+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T07:54:30.507+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T07:54:30.507+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T07:54:30.511+0530	INFO	unittest/main_test.go:65	Test case execution done. Exit code is : 1
+2021-03-23T07:56:15.408+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T07:56:15.410+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T07:56:15.410+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T07:56:15.410+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T07:56:15.410+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T07:56:15.410+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T07:58:11.183+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T07:58:11.184+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T07:58:11.184+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T07:58:11.185+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T07:58:11.185+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T07:58:11.185+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T07:58:59.407+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T07:58:59.409+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T07:58:59.409+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T07:58:59.409+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T07:58:59.409+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T07:58:59.410+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T08:06:03.139+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:06:03.140+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:06:03.140+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:06:03.140+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:06:03.141+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T08:06:03.141+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T08:07:14.170+0530	INFO	unittest/main_test.go:65	Test case execution done. Exit code is : 1
+2021-03-23T08:07:56.492+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:07:56.493+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:07:56.494+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:07:56.494+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:07:56.494+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T08:07:56.494+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T08:09:30.451+0530	INFO	unittest/main_test.go:65	Test case execution done. Exit code is : 1
+2021-03-23T08:10:13.882+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:10:13.883+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:10:13.883+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:10:13.884+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:10:13.884+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T08:10:13.884+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T08:14:40.311+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:14:40.312+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:14:40.312+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:14:40.312+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:14:40.312+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T08:14:40.312+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T08:16:26.401+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:16:26.402+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:16:26.402+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:16:26.402+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:16:26.403+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T08:16:26.403+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T08:18:14.448+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:18:14.449+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:18:14.449+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:18:33.195+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:18:33.195+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T08:18:33.195+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T08:18:38.676+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:18:38.677+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:18:38.678+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:21:43.249+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:21:47.541+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T08:21:47.542+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T08:23:03.751+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:23:03.752+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:23:03.752+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:23:11.553+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:26:45.462+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:26:45.463+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:26:45.463+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:26:48.897+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:27:25.662+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:27:25.663+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:27:25.663+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:27:31.389+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:29:23.027+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:29:23.028+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:29:23.028+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:29:26.800+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:31:25.729+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:31:25.730+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:31:25.730+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:31:33.185+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:31:58.809+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:31:58.810+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:31:58.810+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:32:40.587+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:32:40.588+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:32:40.588+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:32:42.354+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:34:05.818+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:34:05.819+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:34:05.819+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:34:05.820+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:34:05.820+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T08:34:05.820+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T08:34:30.007+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T08:34:30.008+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T08:34:30.008+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T08:34:30.008+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T08:34:30.009+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T08:34:30.009+0530	INFO	unittest/main_test.go:63	Starting test cases
+2021-03-23T08:34:30.009+0530	INFO	unittest/main_test.go:65	Test case execution done. Exit code is : 0

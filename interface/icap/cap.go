@@ -1,23 +1,31 @@
 package icap
 
 import (
-	"tiger-card/pass/daily"
-	"tiger-card/pass/weekly"
+	"tiger-card/cap/daily"
+	"tiger-card/cap/pass"
+	"tiger-card/cap/weekly"
 	"tiger-card/trip"
-	"time"
 )
 
 // Cap interface define the method for all types of cap
 type Cap interface {
 	// GetCappedFare accept the trip details and initially calculated fare
 	// and the validate it against the total fare and fare cap set
-	GetCappedFare(trip *trip.Trip, actualFare int) int
+	IsCapLimitReached(t *trip.Trip, actualFare int) bool
 
 	// Reset resets the cap
-	Reset(dateTime time.Time)
+	Reset(t *trip.Trip)
 
 	// UpdateTotalFare update teh total fare for a cap
-	UpdateTotalFare(fare int)
+	GetCappedFare(actualFare int) int
+
+	// UpdateTotalFare update teh total fare for a cap
+	UpdateCap(trip *trip.Trip)
+
+	// UpdateTotalFare update teh total fare for a cap
+	GetPass(trip *trip.Trip) *pass.Pass
+
+	UpdateTotalFare(actualFare int)
 }
 
 // GetCaps returns all type of caps
