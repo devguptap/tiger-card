@@ -1,0 +1,22 @@
+{
+  "Z1": {
+    "Z1": {
+      "peakFare": 30,
+      "offPeakFare": 25
+    },
+    "Z2": {
+      "peakFare": 35,
+      "offPeakFare": 30
+    }
+  },
+  "Z2": {
+    "Z1": {
+      "peakFare": 35,
+      "offPeakFare": 30
+    },
+    "Z2": {
+      "peakFare": 25,
+      "offPeakFare": 20
+    }
+  }
+}

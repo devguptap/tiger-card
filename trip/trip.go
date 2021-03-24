@@ -1,19 +1,22 @@
 package trip
 
 import (
-	"tiger-card/zone"
 	"time"
 )
 
+// Trip represent a trip object containing tiger-card number, from zone, to zone and time of travel.
 type Trip struct {
-	FromZone, ToZone zone.Zone
+	CardNumber       int
+	FromZone, ToZone string
 	DateTime         time.Time
 }
 
-func NewTrip(from, to int, dateTime time.Time) *Trip {
+// NewTrip accepts the from,to zones and dateTime and initialize and return the trip object
+func NewTrip(cardNumber int, fromZone, toZone string, dateTime time.Time) *Trip {
 	return &Trip{
-		FromZone: zone.NewZone(from),
-		ToZone:   zone.NewZone(to),
-		DateTime: dateTime,
+		CardNumber: cardNumber,
+		FromZone:   fromZone,
+		ToZone:     toZone,
+		DateTime:   dateTime,
 	}
 }

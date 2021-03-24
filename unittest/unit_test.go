@@ -6,6 +6,7 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 	"io/ioutil"
 	"testing"
+	"tiger-card/card"
 	"tiger-card/config"
 	"tiger-card/fare/calculate"
 	"tiger-card/trip"
@@ -16,6 +17,7 @@ const (
 	testDataDateTimeFormat = "02-01-2006 15:04"
 )
 
+// TestTigerCard run the test case for each trip and check the expected result for a list of trip.
 func TestTigerCard(t *testing.T) {
 	var testData []*testDataObj
 	var err error
@@ -24,6 +26,7 @@ func TestTigerCard(t *testing.T) {
 		t.FailNow()
 	}
 
+	tigerCard := card.NewTigerCard()
 	for _, testCase := range testData {
 		Convey(fmt.Sprintf("Given a test case with id : %s", testCase.TestCaseId), t, func() {
 			var trips = make([]*trip.Trip, 0, 0)
@@ -34,11 +37,12 @@ func TestTigerCard(t *testing.T) {
 					t.FailNow()
 				}
 
-				trips = append(trips, trip.NewTrip(tripTestData.FromZone, tripTestData.ToZone, dateTime))
+				trips = append(trips, trip.NewTrip(tigerCard.GetCardNumber(), tripTestData.FromZone, tripTestData.ToZone, dateTime))
 			}
 			Convey("When run the test case", func() {
-				actualResult := calculate.FareCalculator(trips)
+				actualResult := calculate.FareCalculator(tigerCard.GetCardNumber(), trips)
 				Convey(fmt.Sprintf("Then the expected result should be : %v", testCase.ExpectedResult), func() {
+					t.Logf("Actual Result is : %v", actualResult)
 					So(actualResult, ShouldEqual, testCase.ExpectedResult)
 				})
 			})
@@ -47,6 +51,7 @@ func TestTigerCard(t *testing.T) {
 
 }
 
+// getTestData parses the test data from testdata.json config file
 func getTestData() ([]*testDataObj, error) {
 	var err error
 	var testData []*testDataObj

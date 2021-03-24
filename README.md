@@ -20,10 +20,10 @@ go env
 ```
 
 # Unit test cases
-Unit test cases are present inside package unittest.
+Unit test cases are present inside package *unittest*.
 To run the using test please use below command.
 ```sh
-go test -v ./unittest/
+go test -v ./...
 ```
 
 The sample output for the Unit test is as below:

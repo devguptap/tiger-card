@@ -1,0 +1,170 @@
+{
+  "zoneRadiusMap": {
+    "Z1": 2,
+    "Z2": 5
+  },
+  "fareConfig": {
+    "Z1": {
+      "Z1": {
+        "peakFare": 30,
+        "offPeakFare": 25
+      },
+      "Z2": {
+        "peakFare": 35,
+        "offPeakFare": 30
+      }
+    },
+    "Z2": {
+      "Z1": {
+        "peakFare": 35,
+        "offPeakFare": 30
+      },
+      "Z2": {
+        "peakFare": 25,
+        "offPeakFare": 20
+      }
+    }
+  },
+  "capConfig": {
+    "Z1": {
+      "Z1": {
+        "dailyCap": 100,
+        "weeklyCap": 500
+      },
+      "Z2": {
+        "dailyCap": 120,
+        "weeklyCap": 600
+      }
+    },
+    "Z2": {
+      "Z1": {
+        "dailyCap": 120,
+        "weeklyCap": 600
+      },
+      "Z2": {
+        "dailyCap": 80,
+        "weeklyCap": 400
+      }
+    }
+  },
+  "peakHourConfig": {
+    "Sunday": [
+      {
+        "fromTime": "09:00",
+        "toTime": "11:00"
+      },
+      {
+        "fromTime": "18:00",
+        "toTime": "22:00"
+      }
+    ],
+    "Monday": [
+      {
+        "fromTime": "07:00",
+        "toTime": "10:30"
+      },
+      {
+        "fromTime": "17:00",
+        "toTime": "20:00"
+      }
+    ],
+    "Tuesday": [
+      {
+        "fromTime": "07:00",
+        "toTime": "10:30"
+      },
+      {
+        "fromTime": "17:00",
+        "toTime": "20:00"
+      }
+    ],
+    "Wednesday": [
+      {
+        "fromTime": "07:00",
+        "toTime": "10:30"
+      },
+      {
+        "fromTime": "17:00",
+        "toTime": "20:00"
+      }
+    ],
+    "Thursday": [
+      {
+        "fromTime": "07:00",
+        "toTime": "10:30"
+      },
+      {
+        "fromTime": "17:00",
+        "toTime": "20:00"
+      }
+    ],
+    "Friday": [
+      {
+        "fromTime": "07:00",
+        "toTime": "10:30"
+      },
+      {
+        "fromTime": "17:00",
+        "toTime": "20:00"
+      }
+    ],
+    "Saturday": [
+      {
+        "fromTime": "09:00",
+        "toTime": "11:00"
+      },
+      {
+        "fromTime": "18:00",
+        "toTime": "22:00"
+      }
+    ]
+  },
+  "returnJourneyOffPeekHourConfig": {
+    "Z2": {
+      "Z1": {
+        "Sunday": [
+          {
+            "fromTime": "18:00",
+            "toTime": "22:00"
+          }
+        ],
+        "Monday": [
+          {
+            "fromTime": "17:00",
+            "toTime": "20:00"
+          }
+        ],
+        "Tuesday": [
+          {
+            "fromTime": "17:00",
+            "toTime": "20:00"
+          }
+        ],
+        "Wednesday": [
+          {
+            "fromTime": "17:00",
+            "toTime": "20:00"
+          }
+        ],
+        "Thursday": [
+          {
+            "fromTime": "17:00",
+            "toTime": "20:00"
+          }
+        ],
+        "Friday": [
+          {
+            "fromTime": "17:00",
+            "toTime": "20:00"
+          }
+        ],
+        "Saturday": [
+          {
+            "fromTime": "18:00",
+            "toTime": "22:00"
+          }
+        ]
+      }
+    }
+  }
+}

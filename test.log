@@ -12,3 +12,143 @@
 2021-03-13T12:57:17.365+0530	ERROR	tiger-card/main.go:15	[Main]. Unable to initialize IST location due to error : {error 26 0  unknown time zone constants.IstLocationIANAString}
 2021-03-13T12:59:17.053+0530	ERROR	tiger-card/main.go:15	[Main]. Unable to initialize IST location due to error : {Key:error Type:26 Integer:0 String: Interface:unknown time zone constants.IstLocationIANAString}
 2021-03-13T12:59:28.791+0530	ERROR	tiger-card/main.go:14	[Main]. Unable to initialize IST location due to error : unknown time zone constants.IstLocationIANAString
+2021-03-22T12:12:03.823+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T12:12:03.824+0530	ERROR	tiger-card/main.go:21	Unable to initialize daily cap due to error : %+vjson: Unmarshal(non-pointer map[zone.Id]map[zone.Id]int)
+2021-03-22T12:13:59.533+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T12:13:59.534+0530	ERROR	tiger-card/main.go:21	Unable to initialize daily cap due to error : %+vjson: Unmarshal(non-pointer map[zone.Id]map[zone.Id]int)
+2021-03-22T12:14:31.205+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T12:14:31.206+0530	ERROR	tiger-card/main.go:21	Unable to initialize daily cap due to error : %+vjson: cannot unmarshal object into Go value of type int
+2021-03-22T12:15:22.741+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T12:15:22.742+0530	ERROR	tiger-card/main.go:21	Unable to initialize daily cap due to error : json: cannot unmarshal object into Go value of type int
+2021-03-22T15:13:10.463+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T15:14:00.258+0530	ERROR	tiger-card/main.go:21	Unable to initialize daily cap due to error : json: cannot unmarshal object into Go value of type int
+2021-03-22T15:14:51.902+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T15:15:04.125+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T15:16:50.057+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T15:16:50.058+0530	INFO	daily/daily.go:66	[Config]. daily cap initialized successfully
+2021-03-22T15:16:50.062+0530	ERROR	tiger-card/main.go:26	Unable to initialize peak hour map due to error : parsing time "07:00" as "HH:mm": cannot parse "07:00" as "HH:mm"
+2021-03-22T15:17:56.102+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T15:17:56.104+0530	INFO	daily/daily.go:66	[Config]. daily cap initialized successfully
+2021-03-22T15:17:56.105+0530	ERROR	tiger-card/main.go:28	Unable to initialize weekly cap due to error : json: Unmarshal(non-pointer map[zone.Id]map[zone.Id]int)
+2021-03-22T15:18:17.715+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T15:18:17.717+0530	INFO	daily/daily.go:66	[Config]. daily cap initialized successfully
+2021-03-22T15:18:17.719+0530	INFO	weekly/weekly.go:66	[Config]. weekly cap initialized successfully
+2021-03-22T15:18:17.720+0530	ERROR	tiger-card/main.go:33	Unable to initialize peak hour map due to error : parsing time "07:00" as "HH:mm": cannot parse "07:00" as "HH:mm"
+2021-03-22T15:19:32.149+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T15:19:32.151+0530	INFO	daily/daily.go:66	[Config]. daily cap initialized successfully
+2021-03-22T15:19:32.152+0530	INFO	weekly/weekly.go:66	[Config]. weekly cap initialized successfully
+2021-03-22T15:20:40.115+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T15:20:40.117+0530	INFO	daily/daily.go:66	[Config]. daily cap initialized successfully
+2021-03-22T15:20:40.119+0530	INFO	weekly/weekly.go:66	[Config]. weekly cap initialized successfully
+2021-03-22T15:20:40.121+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T15:20:40.122+0530	ERROR	tiger-card/main.go:51	Unable to initialize zone due to error : json: Unmarshal(non-pointer map[zone.Id]zone.Radius)
+2021-03-22T15:21:09.323+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T15:21:09.325+0530	INFO	daily/daily.go:66	[Config]. daily cap initialized successfully
+2021-03-22T15:21:09.325+0530	INFO	weekly/weekly.go:66	[Config]. weekly cap initialized successfully
+2021-03-22T15:21:09.328+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T15:21:09.330+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T15:21:09.330+0530	INFO	tiger-card/main.go:55	Initialization done successfully
+2021-03-22T16:34:37.134+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T16:34:37.135+0530	INFO	daily/daily.go:66	[Config]. daily cap initialized successfully
+2021-03-22T16:34:37.136+0530	INFO	weekly/weekly.go:66	[Config]. weekly cap initialized successfully
+2021-03-22T16:34:37.137+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T16:34:37.137+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T16:34:37.137+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T16:35:10.865+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T16:35:17.247+0530	INFO	daily/daily.go:66	[Config]. daily cap initialized successfully
+2021-03-22T16:35:17.248+0530	INFO	weekly/weekly.go:66	[Config]. weekly cap initialized successfully
+2021-03-22T16:35:17.249+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T16:35:17.250+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T16:35:17.250+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T17:14:56.415+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T17:14:56.417+0530	INFO	daily/daily.go:67	[Config]. daily cap initialized successfully
+2021-03-22T17:14:56.418+0530	INFO	weekly/weekly.go:67	[Config]. weekly cap initialized successfully
+2021-03-22T17:14:56.418+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T17:14:56.419+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T17:14:56.419+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T17:16:11.246+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T17:16:11.248+0530	INFO	daily/daily.go:67	[Config]. daily cap initialized successfully
+2021-03-22T17:16:11.249+0530	INFO	weekly/weekly.go:67	[Config]. weekly cap initialized successfully
+2021-03-22T17:16:11.249+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T17:16:11.250+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T17:16:11.250+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T17:17:18.906+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T17:17:18.908+0530	INFO	daily/daily.go:67	[Config]. daily cap initialized successfully
+2021-03-22T17:17:18.908+0530	INFO	weekly/weekly.go:67	[Config]. weekly cap initialized successfully
+2021-03-22T17:17:18.909+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T17:17:18.910+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T17:17:18.910+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T17:18:31.860+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T17:18:31.862+0530	INFO	daily/daily.go:67	[Config]. daily cap initialized successfully
+2021-03-22T17:18:31.863+0530	INFO	weekly/weekly.go:67	[Config]. weekly cap initialized successfully
+2021-03-22T17:18:31.863+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T17:18:31.864+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T17:18:31.864+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T17:39:50.648+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T17:39:50.650+0530	INFO	daily/daily.go:67	[Config]. daily cap initialized successfully
+2021-03-22T17:39:50.651+0530	INFO	weekly/weekly.go:67	[Config]. weekly cap initialized successfully
+2021-03-22T17:39:50.651+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T17:39:50.652+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T17:39:50.653+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T17:46:41.261+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T17:46:41.262+0530	INFO	daily/daily.go:71	[Config]. daily cap initialized successfully
+2021-03-22T17:46:41.262+0530	INFO	weekly/weekly.go:72	[Config]. weekly cap initialized successfully
+2021-03-22T17:46:41.263+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T17:46:41.263+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T17:46:41.263+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T17:46:55.686+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T17:46:55.687+0530	INFO	daily/daily.go:71	[Config]. daily cap initialized successfully
+2021-03-22T17:46:55.687+0530	INFO	weekly/weekly.go:72	[Config]. weekly cap initialized successfully
+2021-03-22T17:46:55.688+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T17:46:55.688+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T17:46:55.688+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T17:49:02.057+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T17:49:02.058+0530	INFO	daily/daily.go:71	[Config]. daily cap initialized successfully
+2021-03-22T17:49:02.058+0530	INFO	weekly/weekly.go:72	[Config]. weekly cap initialized successfully
+2021-03-22T17:49:02.058+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T17:49:02.059+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T17:49:02.059+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T17:50:23.911+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T17:50:23.912+0530	INFO	daily/daily.go:71	[Config]. daily cap initialized successfully
+2021-03-22T17:50:23.912+0530	INFO	weekly/weekly.go:72	[Config]. weekly cap initialized successfully
+2021-03-22T17:50:23.912+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T17:50:23.913+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T17:50:23.913+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T17:55:31.690+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T17:55:31.691+0530	INFO	daily/daily.go:71	[Config]. daily cap initialized successfully
+2021-03-22T17:55:31.691+0530	INFO	weekly/weekly.go:72	[Config]. weekly cap initialized successfully
+2021-03-22T17:55:31.691+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T17:55:31.692+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T17:55:31.692+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T18:01:46.065+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T18:01:46.066+0530	INFO	daily/daily.go:70	[Config]. daily cap initialized successfully
+2021-03-22T18:01:46.067+0530	INFO	weekly/weekly.go:75	[Config]. weekly cap initialized successfully
+2021-03-22T18:01:46.067+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T18:01:46.067+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T18:01:46.068+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T18:01:56.783+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T18:01:56.784+0530	INFO	daily/daily.go:70	[Config]. daily cap initialized successfully
+2021-03-22T18:01:56.784+0530	INFO	weekly/weekly.go:75	[Config]. weekly cap initialized successfully
+2021-03-22T18:01:56.785+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T18:01:56.785+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T18:01:56.785+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-22T18:07:56.308+0530	INFO	fare/fare.go:27	[Config]. fare initialized successfully
+2021-03-22T18:07:56.309+0530	INFO	daily/daily.go:71	[Config]. daily cap initialized successfully
+2021-03-22T18:07:56.309+0530	INFO	weekly/weekly.go:76	[Config]. weekly cap initialized successfully
+2021-03-22T18:07:56.309+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-22T18:07:56.310+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-22T18:07:56.310+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-23T07:40:12.688+0530	INFO	fare/fare.go:28	[Config]. fare initialized successfully
+2021-03-23T07:40:12.689+0530	INFO	daily/daily.go:71	[Config]. daily cap initialized successfully
+2021-03-23T07:40:12.689+0530	INFO	weekly/weekly.go:76	[Config]. weekly cap initialized successfully
+2021-03-23T07:40:12.689+0530	INFO	peakhr/peakHr.go:82	Peak Hour Config initialized successfully
+2021-03-23T07:40:12.690+0530	INFO	zone/zone.go:22	[Config]. zones initialized successfully
+2021-03-23T07:40:12.690+0530	INFO	tiger-card/main.go:60	Initialization done successfully
+2021-03-23T07:51:12.535+0530	ERROR	fare/fare.go:29	unable to fetch resource directory path from env variable : TigerCardResourceDirPath
+2021-03-23T07:51:12.536+0530	ERROR	tiger-card/main.go:31	Unable to initialize fare due to error : unable to fetch resource directory path from env variable : TigerCardResourceDirPath
+2021-03-23T07:52:36.955+0530	INFO	fare/fare.go:34	[Config]. fare initialized successfully
+2021-03-23T07:52:36.956+0530	INFO	daily/daily.go:78	[Config]. daily cap initialized successfully
+2021-03-23T07:52:36.956+0530	INFO	weekly/weekly.go:83	[Config]. weekly cap initialized successfully
+2021-03-23T07:52:36.957+0530	INFO	peakhr/peakHr.go:88	Peak Hour Config initialized successfully
+2021-03-23T07:52:36.957+0530	INFO	zone/zone.go:28	[Config]. zones initialized successfully
+2021-03-23T07:52:36.957+0530	INFO	tiger-card/main.go:60	Initialization done successfully

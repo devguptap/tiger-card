@@ -1,68 +1,99 @@
 package weekly
 
 import (
-	"tiger-card/cap/util"
-	"tiger-card/config"
+	"encoding/json"
+	"errors"
+	"io/ioutil"
+	"os"
+	"tiger-card/cap/pass"
+	"tiger-card/logger"
 	"tiger-card/trip"
+	"tiger-card/zone"
 	"time"
 )
 
-var dayDiffFromStartOfTheWeek = map[time.Weekday]int{
-	time.Monday:    0,
-	time.Tuesday:   1,
-	time.Wednesday: 2,
-	time.Thursday:  3,
-	time.Friday:    4,
-	time.Saturday:  5,
-	time.Sunday:    6,
-}
+// weeklyCapMap represent the mapping of weekly cap between zone
+var weeklyCapMap map[zone.Id]map[zone.Id]int
 
-var weeklyCap [][]int
-
+// Weekly struct contains the weekly cap limit and weekly total for a tiger-card
 type Weekly struct {
 	capAmount    int
+	weeklyTotal  int
 	zoneDistance int
-	totalFare    int
-	lastUpdated  time.Time
+	expiry       time.Time
 }
 
-func (w *Weekly) Reset(dateTime time.Time) {
-	w.capAmount, w.totalFare = 0, 0
-	w.zoneDistance = -1
-	w.lastUpdated = dateTime
+// Reset reset the weekly cap for the first journey of the week
+func (w *Weekly) Reset(t *trip.Trip) {
+	w.capAmount = weeklyCapMap[zone.Id(t.FromZone)][zone.Id(t.ToZone)]
+	w.zoneDistance = zone.GetZoneDistance(t.FromZone, t.ToZone)
+	w.expiry = getWeeklyCapExpiry(t.DateTime)
+	w.weeklyTotal = 0
 }
 
-func (w *Weekly) GetCappedFare(trip *trip.Trip, actualFare int) int {
-	w.updateCap(trip)
-	if w.capAmount-w.totalFare < actualFare {
-		return w.capAmount - w.totalFare
+// IsCapLimitReached check if weekly total fare + current trip fare is exceeding the cap limit
+func (w *Weekly) IsCapLimitReached(actualFare int) bool {
+	if w.capAmount-w.weeklyTotal < actualFare {
+		return true
+	} else {
+		return false
+	}
+}
+
+// GetCappedFare return the modified fare if cap limit reached else return the actualFare
+func (w *Weekly) GetCappedFare(actualFare int) int {
+	if w.capAmount-w.weeklyTotal < actualFare {
+		return w.capAmount - w.weeklyTotal
 	} else {
 		return actualFare
 	}
 }
 
-func (w *Weekly) updateCap(trip *trip.Trip) {
-	if w.lastUpdated.Before(getStartOfTheWeekDateTime(trip.DateTime)) {
-		w.Reset(trip.DateTime)
+// UpdateCap update the weekly cap object for given trip. It reset the cap if trip is for new week
+func (w *Weekly) UpdateCap(trip *trip.Trip) {
+	if w.expiry.After(trip.DateTime) {
+		currZoneDistance := zone.GetZoneDistance(trip.ToZone, trip.ToZone)
+		if currZoneDistance > w.zoneDistance {
+			w.zoneDistance = currZoneDistance
+			w.capAmount = weeklyCapMap[zone.Id(trip.FromZone)][zone.Id(trip.ToZone)]
+		}
+	} else {
+		w.Reset(trip)
+	}
+}
+
+// UpdateTotalFare update the weekly total fare with current fare
+func (w *Weekly) UpdateTotalFare(actualFare int) {
+	w.weeklyTotal += actualFare
+}
+
+// InitWeeklyCap initialize the weeklyCapMap with the provided config
+func InitWeeklyCap() error {
+	var err error
+	var fileBytes []byte
+	var resourceDirPath string
+	if resourceDirPath = os.Getenv("TigerCardResourceDirPath"); resourceDirPath == "" {
+		logger.GetLogger().Error("unable to fetch resource directory path from env variable : TigerCardResourceDirPath")
+		return errors.New("unable to fetch resource directory path from env variable : TigerCardResourceDirPath")
+	}
+	if fileBytes, err = ioutil.ReadFile(resourceDirPath + string(os.PathSeparator) + "weeklyCap.json"); err == nil {
+		weeklyCapMap = make(map[zone.Id]map[zone.Id]int)
+		if err = json.Unmarshal(fileBytes, &weeklyCapMap); err == nil {
+			logger.GetLogger().Info("[Config]. weekly cap initialized successfully")
+		}
 	}
 
-	currZoneDistance := util.GetZoneDistance(trip.FromZone, trip.ToZone)
-	if currZoneDistance > w.zoneDistance {
-		w.zoneDistance = currZoneDistance
-		w.capAmount = weeklyCap[trip.FromZone.GetId()-1][trip.ToZone.GetId()-1]
-	}
+	return err
 }
 
-func (w *Weekly) UpdateTotalFare(fare int) {
-	w.totalFare += fare
+// getWeeklyCapExpiry set the expiry of weekly cap object for the end of the week
+func getWeeklyCapExpiry(t time.Time) time.Time {
+	dayOfTheWeek := int(t.Weekday())
+	dayToAdd := (7-dayOfTheWeek)%7 + 1
+	return time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location()).AddDate(0, 0, dayToAdd)
 }
 
-func Init(capMatrix [][]int) {
-	weeklyCap = capMatrix
-}
-
-func getStartOfTheWeekDateTime(today time.Time) time.Time {
-	currDay := today.Weekday()
-	startOfTheWeek := time.Date(today.Year(), today.Month(), today.Day(), 0, 0, 0, 0, config.ISTLocation).AddDate(0, 0, -(dayDiffFromStartOfTheWeek[currDay]))
-	return startOfTheWeek
+// GetPass returns a weekly pass. If pass achieved, then ride will be free till the expiry of the pass.
+func (w *Weekly) GetPass(trip *trip.Trip) *pass.Pass {
+	return pass.NewPass("weekly", getWeeklyCapExpiry(trip.DateTime))
 }

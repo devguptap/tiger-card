@@ -1,9 +1,8 @@
 package unittest
 
 import (
-	"encoding/json"
 	"flag"
-	"io/ioutil"
+	"fmt"
 	"os"
 	"runtime/debug"
 	"testing"
@@ -13,12 +12,14 @@ import (
 	"tiger-card/fare"
 	"tiger-card/logger"
 	"tiger-card/peakhr"
+	"tiger-card/zone"
 )
 
+// TestMain initialize different object and run E2E unit test cases.
 func TestMain(m *testing.M) {
 	defer func() {
 		if r := recover(); r != nil {
-			logger.GetLogger().Errorf("Test failed with error : %+v", r)
+			fmt.Printf("Test failed with error : %+v\n", r)
 			debug.PrintStack()
 			os.Exit(int(flag.ExitOnError))
 		}
@@ -30,18 +31,33 @@ func TestMain(m *testing.M) {
 		os.Exit(int(flag.ExitOnError))
 	}
 
-	if err = initFareData(); err != nil {
-		logger.GetLogger().Errorf("Unable to parse fare data file due to error : %+v", err)
+	if err = fare.InitFare(); err != nil {
+		logger.GetLogger().Errorf("Unable to initialize fare due to error : %+v", err)
 		os.Exit(int(flag.ExitOnError))
 	}
 
-	if err = initCapData(); err != nil {
-		logger.GetLogger().Errorf("Unable to parse fare cap data file due to error : %+v", err)
+	if err = daily.InitDailyCap(); err != nil {
+		logger.GetLogger().Errorf("Unable to initialize daily cap due to error : %+v", err)
 		os.Exit(int(flag.ExitOnError))
 	}
 
-	if err = initPeakHourTestData(); err != nil {
-		logger.GetLogger().Errorf("Unable to parse peak hour data file due to error : %+v", err)
+	if err = weekly.InitWeeklyCap(); err != nil {
+		logger.GetLogger().Errorf("Unable to initialize weekly cap due to error : %+v", err)
+		os.Exit(int(flag.ExitOnError))
+	}
+
+	if err = peakhr.InitPeakHrMap(); err != nil {
+		logger.GetLogger().Errorf("Unable to initialize peak hour map due to error : %+v", err)
+		os.Exit(int(flag.ExitOnError))
+	}
+
+	if err = peakhr.InitReturnTripOffPeakHrMap(); err != nil {
+		logger.GetLogger().Errorf("Unable to initialize return trip off peak hour map due to error : %+v", err)
+		os.Exit(int(flag.ExitOnError))
+	}
+
+	if err = zone.InitZones(); err != nil {
+		logger.GetLogger().Errorf("Unable to initialize zone due to error : %+v", err)
 		os.Exit(int(flag.ExitOnError))
 	}
 
@@ -49,38 +65,4 @@ func TestMain(m *testing.M) {
 	exitVal := m.Run()
 	logger.GetLogger().Infof("Test case execution done. Exit code is : %v", exitVal)
 	os.Exit(exitVal)
-}
-
-func initPeakHourTestData() error {
-	var fileBytes []byte
-	var err error
-	if fileBytes, err = ioutil.ReadFile("./peekHourConfig.json"); err == nil {
-		peakhr.InitializePeakHour(fileBytes)
-	}
-	return err
-}
-
-func initCapData() error {
-	var fileBytes []byte
-	var err error
-	if fileBytes, err = ioutil.ReadFile("./capData.json"); err == nil {
-		dataObj := &capData{}
-		if err = json.Unmarshal(fileBytes, dataObj); err == nil {
-			daily.Init(dataObj.Daily)
-			weekly.Init(dataObj.Weekly)
-		}
-	}
-	return err
-}
-
-func initFareData() error {
-	var fileBytes []byte
-	var err error
-	if fileBytes, err = ioutil.ReadFile("./fareData.json"); err == nil {
-		dataObj := &fareData{}
-		if err = json.Unmarshal(fileBytes, dataObj); err == nil {
-			fare.Init(dataObj.PeakHour, dataObj.OffPeakHour)
-		}
-	}
-	return err
 }

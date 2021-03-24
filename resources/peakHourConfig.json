@@ -1,0 +1,72 @@
+{
+  "Sunday": [
+    {
+      "fromTime": "09:00",
+      "toTime": "11:00"
+    },
+    {
+      "fromTime": "18:00",
+      "toTime": "22:00"
+    }
+  ],
+  "Monday": [
+    {
+      "fromTime": "07:00",
+      "toTime": "10:30"
+    },
+    {
+      "fromTime": "17:00",
+      "toTime": "20:00"
+    }
+  ],
+  "Tuesday": [
+    {
+      "fromTime": "07:00",
+      "toTime": "10:30"
+    },
+    {
+      "fromTime": "17:00",
+      "toTime": "20:00"
+    }
+  ],
+  "Wednesday": [
+    {
+      "fromTime": "07:00",
+      "toTime": "10:30"
+    },
+    {
+      "fromTime": "17:00",
+      "toTime": "20:00"
+    }
+  ],
+  "Thursday": [
+    {
+      "fromTime": "07:00",
+      "toTime": "10:30"
+    },
+    {
+      "fromTime": "17:00",
+      "toTime": "20:00"
+    }
+  ],
+  "Friday": [
+    {
+      "fromTime": "07:00",
+      "toTime": "10:30"
+    },
+    {
+      "fromTime": "17:00",
+      "toTime": "20:00"
+    }
+  ],
+  "Saturday": [
+    {
+      "fromTime": "09:00",
+      "toTime": "11:00"
+    },
+    {
+      "fromTime": "18:00",
+      "toTime": "22:00"
+    }
+  ]
+}

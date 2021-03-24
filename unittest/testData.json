@@ -4,28 +4,28 @@
     "trips": [
       {
         "dateTimeString": "08-03-2021 10:20",
-        "fromZone": 2,
-        "toZone": 1
+        "fromZone": "Z2",
+        "toZone": "Z1"
       },
       {
         "dateTimeString": "08-03-2021 10:45",
-        "fromZone": 1,
-        "toZone": 1
+        "fromZone": "Z1",
+        "toZone": "Z1"
       },
       {
         "dateTimeString": "08-03-2021 16:15",
-        "fromZone": 1,
-        "toZone": 1
+        "fromZone": "Z1",
+        "toZone": "Z1"
       },
       {
         "dateTimeString": "08-03-2021 18:15",
-        "fromZone": 1,
-        "toZone": 1
+        "fromZone": "Z1",
+        "toZone": "Z1"
       },
       {
         "dateTimeString": "08-03-2021 19:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       }
     ],
     "expectedResult": 120
@@ -35,168 +35,168 @@
     "trips": [
       {
         "dateTimeString": "08-03-2021 11:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "08-03-2021 12:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "08-03-2021 13:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "08-03-2021 14:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "08-03-2021 15:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "09-03-2021 11:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "09-03-2021 12:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "09-03-2021 13:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "09-03-2021 14:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "09-03-2021 15:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "10-03-2021 11:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "10-03-2021 12:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "10-03-2021 13:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "10-03-2021 14:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "10-03-2021 15:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "11-03-2021 11:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "11-03-2021 12:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "11-03-2021 13:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "11-03-2021 14:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "11-03-2021 15:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "12-03-2021 11:00",
-        "fromZone": 1,
-        "toZone": 1
+        "fromZone": "Z1",
+        "toZone": "Z1"
       },
       {
         "dateTimeString": "12-03-2021 12:00",
-        "fromZone": 1,
-        "toZone": 1
+        "fromZone": "Z1",
+        "toZone": "Z1"
       },
       {
         "dateTimeString": "12-03-2021 18:00",
-        "fromZone": 1,
-        "toZone": 1
+        "fromZone": "Z1",
+        "toZone": "Z1"
       },
       {
         "dateTimeString": "13-03-2021 11:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "13-03-2021 12:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "13-03-2021 13:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "14-03-2021 09:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "14-03-2021 10:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "14-03-2021 11:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "14-03-2021 12:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "15-03-2021 08:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "15-03-2021 09:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       },
       {
         "dateTimeString": "15-03-2021 11:00",
-        "fromZone": 1,
-        "toZone": 2
+        "fromZone": "Z1",
+        "toZone": "Z2"
       }
     ],
     "expectedResult": 700

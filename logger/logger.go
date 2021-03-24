@@ -9,6 +9,7 @@ import (
 
 var sugarLogger *zap.SugaredLogger
 
+// InitLogger initialize the zap logger
 func InitLogger() {
 	encoder := getEncoder()
 	core := zapcore.NewTee(
@@ -19,10 +20,12 @@ func InitLogger() {
 	sugarLogger = logger.Sugar()
 }
 
+// GetLogger return this logger instance
 func GetLogger() *zap.SugaredLogger {
 	return sugarLogger
 }
 
+// getEncoder returns the log encoder
 func getEncoder() zapcore.Encoder {
 	encoderConfig := zap.NewProductionEncoderConfig()
 	encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
@@ -30,6 +33,7 @@ func getEncoder() zapcore.Encoder {
 	return zapcore.NewConsoleEncoder(encoderConfig)
 }
 
+// getLogWriter initialize and return the file logger instance
 func getLogWriter() zapcore.WriteSyncer {
 	lumberJackLogger := &lumberjack.Logger{
 		Filename:   "./test.log",
