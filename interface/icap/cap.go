@@ -7,24 +7,24 @@ import (
 	"tiger-card/trip"
 )
 
-// Cap interface define the method for all types of cap
+// Cap interface define the method for all type of cap (daily / weekly)
 type Cap interface {
-	// GetCappedFare accept the trip details and initially calculated fare
-	// and the validate it against the total fare and fare cap set
-	IsCapLimitReached(t *trip.Trip, actualFare int) bool
+	// IsCapLimitReached accept the actual fare and check if this cap limit is reached.
+	IsCapLimitReached(actualFare int) bool
 
 	// Reset resets the cap
 	Reset(t *trip.Trip)
 
-	// UpdateTotalFare update teh total fare for a cap
+	// GetCappedFare return the applicable fare for this cap.
 	GetCappedFare(actualFare int) int
 
-	// UpdateTotalFare update teh total fare for a cap
+	// UpdateCap update the cap variable like totalFare etc for this cap
 	UpdateCap(trip *trip.Trip)
 
-	// UpdateTotalFare update teh total fare for a cap
+	// GetPass return the pass with an expiry for this cap
 	GetPass(trip *trip.Trip) *pass.Pass
 
+	// UpdateTotalFare update the total fare for this cap
 	UpdateTotalFare(actualFare int)
 }
 

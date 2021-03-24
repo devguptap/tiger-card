@@ -9,13 +9,14 @@ import (
 	"tiger-card/trip"
 )
 
-// FareCalculator accepts the list of trips and return the total fare for all the trip
+// FareCalculator accepts the tiger-card number and list of trips and return the total fare for that tiger card
 func FareCalculator(cardNumber int, trips []*trip.Trip) int {
 	var totalFare int
 	var tigerCard *card.TigerCard
 	var err error
 	for _, t := range trips {
 		if tigerCard, err = processAndUpdateTigerCard(cardNumber, t); err != nil {
+			// If there is an issue with card processing then exit from here.
 			logger.GetLogger().Error("Unable to process trip due to error : %+v", err)
 			break
 		}
@@ -27,6 +28,7 @@ func FareCalculator(cardNumber int, trips []*trip.Trip) int {
 	return totalFare
 }
 
+// processAndUpdateTigerCard processes a trip for the tiger-card represented by cardNumber
 func processAndUpdateTigerCard(cardNumber int, t *trip.Trip) (*card.TigerCard, error) {
 	var tigerCard *card.TigerCard
 	var err error
@@ -40,7 +42,7 @@ func processAndUpdateTigerCard(cardNumber int, t *trip.Trip) (*card.TigerCard, e
 			actualFare := fare.GetFare(t)
 			for _, c := range tigerCard.GetApplicableCap() {
 				c.UpdateCap(t)
-				if isCapReached := c.IsCapLimitReached(t, actualFare); isCapReached {
+				if isCapReached := c.IsCapLimitReached(actualFare); isCapReached {
 					tigerCard.AddPass(c.GetPass(t))
 					actualFare = c.GetCappedFare(actualFare)
 					break

@@ -4,6 +4,7 @@ import (
 	"time"
 )
 
+// Trip represent a trip object containing tiger-card number, from zone, to zone and time of travel.
 type Trip struct {
 	CardNumber       int
 	FromZone, ToZone string

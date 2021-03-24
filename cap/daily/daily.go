@@ -12,12 +12,10 @@ import (
 	"time"
 )
 
-// dailyCap contains the daily cap matrix for zone combination for a particular test suite. See example below
-// [100	 120]
-// [120	  80]
-
+// dailyCapMap represent the mapping of daily cap between zone
 var dailyCapMap map[zone.Id]map[zone.Id]int
 
+// Daily struct contains the daily cap limit and daily total for a tiger-card
 type Daily struct {
 	capAmount    int
 	dailyTotal   int
@@ -25,6 +23,7 @@ type Daily struct {
 	expiry       time.Time
 }
 
+// Reset reset the daily cap for the first journey of the day
 func (d *Daily) Reset(t *trip.Trip) {
 	d.capAmount = dailyCapMap[zone.Id(t.FromZone)][zone.Id(t.ToZone)]
 	d.zoneDistance = zone.GetZoneDistance(t.FromZone, t.ToZone)
@@ -32,7 +31,8 @@ func (d *Daily) Reset(t *trip.Trip) {
 	d.dailyTotal = 0
 }
 
-func (d *Daily) IsCapLimitReached(t *trip.Trip, actualFare int) bool {
+// IsCapLimitReached check if daily total fare + current trip fare is exceeding the cap limit
+func (d *Daily) IsCapLimitReached(actualFare int) bool {
 	if d.capAmount-d.dailyTotal < actualFare {
 		return true
 	} else {
@@ -40,6 +40,7 @@ func (d *Daily) IsCapLimitReached(t *trip.Trip, actualFare int) bool {
 	}
 }
 
+// GetCappedFare return the modified fare if cap limit reached else return the actualFare
 func (d *Daily) GetCappedFare(actualFare int) int {
 	if d.capAmount-d.dailyTotal < actualFare {
 		return d.capAmount - d.dailyTotal
@@ -48,6 +49,7 @@ func (d *Daily) GetCappedFare(actualFare int) int {
 	}
 }
 
+// UpdateCap update the daily cap object for given trip. It reset the cap if trip is for new day
 func (d *Daily) UpdateCap(trip *trip.Trip) {
 	if d.expiry.After(trip.DateTime) {
 		currZoneDistance := zone.GetZoneDistance(trip.ToZone, trip.ToZone)
@@ -60,10 +62,12 @@ func (d *Daily) UpdateCap(trip *trip.Trip) {
 	}
 }
 
+// UpdateTotalFare update the daily total fare with current fare
 func (d *Daily) UpdateTotalFare(actualFare int) {
 	d.dailyTotal += actualFare
 }
 
+// InitDailyCap initialize the dailyCapMap with the provided config
 func InitDailyCap() error {
 	var err error
 	var fileBytes []byte
@@ -82,10 +86,12 @@ func InitDailyCap() error {
 	return err
 }
 
+// getDailyCapExpiry set the expiry of daily cap object for the end of the day
 func getDailyCapExpiry(timestamp time.Time) time.Time {
 	return time.Date(timestamp.Year(), timestamp.Month(), timestamp.Day()+1, 0, 0, 0, 0, timestamp.Location())
 }
 
+// GetPass returns a daily pass. If pass achieved, then ride will be free till the expiry of the pass.
 func (d *Daily) GetPass(trip *trip.Trip) *pass.Pass {
 	return pass.NewPass("daily", getDailyCapExpiry(trip.DateTime))
 }

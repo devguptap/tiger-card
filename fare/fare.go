@@ -20,7 +20,7 @@ const (
 
 var fares = make(map[zone.Id]map[zone.Id]map[fareType]int)
 
-// Init initializes the fare object
+// InitFare initializes the zone wise fare
 func InitFare() error {
 	var err error
 	var fileBytes []byte
@@ -37,7 +37,7 @@ func InitFare() error {
 	return err
 }
 
-// GetFare return the fare applicable for a single trip
+// GetFare return the fare applicable for a single trip based on from and to zone
 func GetFare(trip *trip.Trip) int {
 	if peakhr.IsPeakHours(trip) {
 		return fares[zone.Id(trip.FromZone)][zone.Id(trip.ToZone)][peakFare]

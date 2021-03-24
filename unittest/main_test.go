@@ -15,6 +15,7 @@ import (
 	"tiger-card/zone"
 )
 
+// TestMain initialize different object and run E2E unit test cases.
 func TestMain(m *testing.M) {
 	defer func() {
 		if r := recover(); r != nil {

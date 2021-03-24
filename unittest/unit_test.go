@@ -17,6 +17,7 @@ const (
 	testDataDateTimeFormat = "02-01-2006 15:04"
 )
 
+// TestTigerCard run the test case for each trip and check the expected result for a list of trip.
 func TestTigerCard(t *testing.T) {
 	var testData []*testDataObj
 	var err error
@@ -50,6 +51,7 @@ func TestTigerCard(t *testing.T) {
 
 }
 
+// getTestData parses the test data from testdata.json config file
 func getTestData() ([]*testDataObj, error) {
 	var err error
 	var testData []*testDataObj

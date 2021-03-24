@@ -13,20 +13,25 @@ import (
 	"time"
 )
 
+// peakHrMap contains the peak hour time range for a particular weekday (Monday, Tuesday, Wednesday etc.)
 var peakHrMap map[time.Weekday][]*timeRange
+
+// returnTripOffPeakHrMap contains the off peak hour time range for a return trip
 var returnTripOffPeakHrMap map[zone.Id]map[zone.Id]map[time.Weekday][]*timeRange
 
+// timeRange represent the from and to time range for peak / off peak hour
 type timeRange struct {
 	fromTime time.Time
 	toTime   time.Time
 }
 
+// configTimeObj represent the peak / off peak hour config time range json object
 type configTimeObj struct {
 	FromTime string `json:"fromTime"`
 	ToTime   string `json:"toTime"`
 }
 
-// IsPeakHours returns whether this trip falls in peak time
+// IsPeakHours check and returns whether this trip falls in peak time
 func IsPeakHours(trip *trip.Trip) bool {
 	peakHrRange := peakHrMap[trip.DateTime.Weekday()]
 	var result bool
@@ -42,6 +47,7 @@ func IsPeakHours(trip *trip.Trip) bool {
 	return result
 }
 
+// isReturnTripOffPeakHr check and returns whether this trip falls in return trip off peak time
 func isReturnTripOffPeakHr(trip *trip.Trip) bool {
 	var result bool
 	if _, ok := returnTripOffPeakHrMap[zone.Id(trip.FromZone)]; ok {
@@ -73,6 +79,7 @@ func isDateTimeWithinTimeRange(dateTime time.Time, timeRange *timeRange) bool {
 	return true
 }
 
+// InitPeakHrMap initializes peak hour map by parsing the peakHourConfig.json file
 func InitPeakHrMap() error {
 	var err error
 	var fileBytes []byte
@@ -92,6 +99,7 @@ func InitPeakHrMap() error {
 	return err
 }
 
+// InitReturnTripOffPeakHrMap initialize return trip off-peak hour map by parsing the returnTripOffPeakHourConfig.json file
 func InitReturnTripOffPeakHrMap() error {
 	var err error
 	var fileBytes []byte
@@ -100,7 +108,7 @@ func InitReturnTripOffPeakHrMap() error {
 		logger.GetLogger().Error("unable to fetch resource directory path from env variable : TigerCardResourceDirPath")
 		return errors.New("unable to fetch resource directory path from env variable : TigerCardResourceDirPath")
 	}
-	if fileBytes, err = ioutil.ReadFile(resourceDirPath + string(os.PathSeparator) + "returnTripOffPeekHourConfig.json"); err == nil {
+	if fileBytes, err = ioutil.ReadFile(resourceDirPath + string(os.PathSeparator) + "returnTripOffPeakHourConfig.json"); err == nil {
 		offPeakHrConfig := make(map[zone.Id]map[zone.Id]map[string][]*configTimeObj)
 		if err = json.Unmarshal(fileBytes, &offPeakHrConfig); err == nil {
 			returnTripOffPeakHrMap = make(map[zone.Id]map[zone.Id]map[time.Weekday][]*timeRange)
@@ -121,6 +129,7 @@ func InitReturnTripOffPeakHrMap() error {
 	return err
 }
 
+// parseConfigForDayTimeRangeMap is a helper function which return the day of the week and time ranges map
 func parseConfigForDayTimeRangeMap(parsedConfig map[string][]*configTimeObj) (map[time.Weekday][]*timeRange, error) {
 	var err error
 	dayTimeRangeMap := make(map[time.Weekday][]*timeRange)
@@ -161,6 +170,7 @@ func parseConfigForDayTimeRangeMap(parsedConfig map[string][]*configTimeObj) (ma
 	return dayTimeRangeMap, err
 }
 
+// getTimeRanges parses the time config time range object into time range
 func getTimeRanges(configTimeRanges []*configTimeObj) ([]*timeRange, error) {
 	dayWiseTimeRange := make([]*timeRange, 0, 0)
 	var err error
