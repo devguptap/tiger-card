@@ -1,5 +1,5 @@
 # tiger-card
-This aplication processes the trip data given as an input and returns the total fare applicable throught the journey.
+This application processes the trip data given as an input and returns the total fare applicable throught the journey.
 
 # Go installation and Setup
 - Install the latest version of go using link : https://golang.org/doc/install
@@ -18,12 +18,14 @@ go env -w GO111MODULE=on
 go version
 go env
 ```
+## Config Setup
+Setup an environment variable **TigerCardResourceDirPath** and assign *resources* the directory path to this variable.
 
 ## Unit test cases
-Unit test cases are present inside package unittest.
+Unit test cases are present inside package *unittest*.
 To run the using test please use below command.
 ```sh
-go test -v ./unittest/
+go test -v ./...
 ```
 
 The sample output for the Unit test is as below:
